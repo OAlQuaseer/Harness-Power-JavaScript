@@ -4,6 +4,8 @@
 //• Use Object.create to construct the subclass prototype object to avoid calling the superclass        constructor.
 //
 
+'use strict';
+
 function Context(){
     // represents underlying graphics display class
 }
