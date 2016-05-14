@@ -41,13 +41,33 @@ Scene.prototype.draw = function (){
     
     this.context.clearRect(0,0,this.width, this.height);
     
-//    for (var i = 0, n= this.actors.length; i < n ; i++){
-//        
-//        this.actors[i].draw();
-//    }
+    for (var i = 0, n= this.actors.length; i < n ; i++){
+        
+        //this.actors[i].draw();
+        console.log (this.actors[i]);
+    }
+} 
+
+function Actor (scene, x, y){
+    this.x = x;
+    this.y = y;
+    this.scene = scene;
+    scene.register(this);
+} 
+
+Actor.prototype.moveTo = function (x,y){
+    this.x = x ;
+    this.y = y ; 
+    this.scene.draw();
 }
 
 var context1= new Context();
 var scene1= new Scene(context1, ["image1","image2"] , 400 , 400);
 
 scene1.draw();
+
+var actor1 = new Actor(scene1, 20, 25);
+console.log(actor1);
+console.log(scene1.actors);
+actor1.moveTo(30, 35);
+console.log(scene1.actors);
