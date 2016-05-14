@@ -1,5 +1,5 @@
 # Harness-Power-JavaScript
-examples for the real power of JavaScript as well as understanding the weird parts of JavaScript: 
+Examples for the real power of JavaScript as well as understanding the weird parts of JavaScript: 
 
 1- OOP part of JavaScript
 2- Scope Variable
