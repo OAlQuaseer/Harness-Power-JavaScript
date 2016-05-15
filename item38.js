@@ -104,12 +104,12 @@ Spaceship.prototype.scorePoint = function() {
 };
 
 Spaceship.prototype.left = function (){
-    
+    console.log("Moving left....");
     this.moveTo(Math.max(this.x - 10, 1),this.y);
 };
 
 Spaceship.prototype.right = function() {
-    
+    console.log("Moving right....");
     var maxWidth = this.scene.width - this.width();
     this.moveTo(Math.min(this.x + 10, maxWidth), this.y);
 };
@@ -121,3 +121,6 @@ var actor1 = new Actor(scene1,1, 20, 25);
 var spaceship2 = new Spaceship(scene1, 30, 35);
 
 scene1.draw();
+
+spaceship2.left();
+spaceship2.right();
