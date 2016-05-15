@@ -79,11 +79,45 @@ Actor.prototype.draw = function (){
     var image = this.scene.images[this.type-1];
     this.scene.context.drawImage(image, this.x, this.y);
     console.log(this);
+    console.log(this.width());
+    console.log(this.height());
+};
+
+Actor.prototype.width = function (){
+    return this.scene.images[this.type-1][1];
+};
+
+Actor.prototype.height = function (){
+    return this.scene.images[this.type-1][2];
+};
+
+function Spaceship (scene, x, y){
+    Actor.call(this, scene, Spaceship.prototype.type, x, y);
+    this.points = 0;
+};
+
+Spaceship.prototype = Object.create(Actor.prototype);
+Spaceship.prototype.type = 2;
+
+Spaceship.prototype.scorePoint = function() {
+    this.points++;
+};
+
+Spaceship.prototype.left = function (){
+    
+    this.moveTo(Math.max(this.x - 10, 1),this.y);
+};
+
+Spaceship.prototype.right = function() {
+    
+    var maxWidth = this.scene.width - this.width();
+    this.moveTo(Math.min(this.x + 10, maxWidth), this.y);
 };
 
 var context1= new Context();
-var scene1= new Scene(context1, [["imageType1",10,10],["imageType2",20,20],["imageType3",30,30],["imageType4",40,40]] , 400 , 400);
+var scene1= new Scene(context1, [["imageType1",10,15],["imageType2",20,25],["imageType3",30,35],["imageType4",40,45]] , 400 , 400);
 
 var actor1 = new Actor(scene1,1, 20, 25);
+var spaceship2 = new Spaceship(scene1, 30, 35);
 
 scene1.draw();
