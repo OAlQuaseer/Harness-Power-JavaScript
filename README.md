@@ -7,4 +7,5 @@ Examples for the real power of JavaScript as well as understanding the weird par
 4- Using 'this'
 5- Closures 
 6- Working with functions
+7- Promises.
 
